@@ -1,3 +1,27 @@
+# Fast Insertion Heuristic for Capacitated Pickup and Delivery Problem with Time Windows (CPDPTW)
+### Problem Description
+Our problem is the vehicle routing problem with pickup and delivery jobs within time window and 
+capacity. We assume a homogenous fleet of vehicles with same speed and capacity.
+A solution consists of a list of vehicles. Each vehicle contains a route which is the sequence of nodes it 
+travels to, a maximum capacity, and the list of jobs it fulfils by going through the route. The number 
+of vehicles for a solution is not bounded by a hard constraint and is modelled as a soft constraint in 
+our objective function. A vehicle’s route starts from and ends at the depot node, and the pick and drop 
+nodes which correspond to the same job have a precedence constraint where the pick node is to be 
+visited before the drop node.
+
+A job consists of 2 nodes, a pick node and a drop node. A node consists of a (x,y) pair representing the 
+location’s latitude and longitude, a (start_time, end_time) which represent the time window for the 
+pick / drop task, and the demand for the pick / drop task which represents the change in capacity 
+when a vehicle reaches that node. A customer order according to the JSON input could comprise a
+pick task followed by multiple drop tasks. We simplify this order into multiple jobs by splitting the pick 
+task by the number of drop tasks in the order.
+
+In our problem, the hard constraints are on order fulfilment, i.e. all customer orders must be fulfilled, 
+as well as on capacity, i.e. the capacity of a vehicle must not be violated when items are picked up. 
+The soft constraints are on the time window for the arrival of the vehicles, as well as the fixed cost 
+incurred whenever a vehicle is deployed. Our aim is to minimise the sum of the tardiness cost 
+(Tardiness = max(0, Arrival_time – Node.end_time) for each node) and the vehicle fixed cost. 
+
 ## NOTE
 Input data file not uploaded due to data confidentiality.
 
