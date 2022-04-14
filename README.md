@@ -1,4 +1,5 @@
-## README
+## NOTE
+Input data file not uploaded due to data confidentiality.
 
 ## How to Run
 To run `alns_main.py` file, run the following with seed 606:
